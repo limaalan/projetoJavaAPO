@@ -115,12 +115,16 @@ public class BuscaFilmesDialog extends javax.swing.JDialog {
         //filme.setTitulo("teste");
         //filmes.adicionarFilme(filme);
         //System.out.println(txt_titulo.getText());
-        filmes.listarTodos();
-        Filme filmex = filmes.procurarFilme("haha"+txt_titulo.getText());
-        
-        if (filmex != null) {
-            System.out.println("Achou o filme "+filmex.getTitulo());
+        //filmes.listarTodos();
+        Filme filme = filmes.procurarFilme(txt_titulo.getText());
+        if (filme!=null){
+            System.out.println("Achou o filme"+filme.getTitulo());
         }
+        
+        
+        
+        
+    
         
         
     }//GEN-LAST:event_btn_pesquisarActionPerformed

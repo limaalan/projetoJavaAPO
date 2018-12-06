@@ -25,7 +25,7 @@ public class Filmes_rapido {
         //Clientes clientes = new Clientes();
         /*Filmes filmes = new Filmes();
         Filme filme = new Filme();
-        filme.setTitulo("testando");
+        filme.setTitulo("filme");
         filme.setAno(2018);
         filmes.adicionarFilme(filme);
         filmes.serializaLista("filmes.dat");   
