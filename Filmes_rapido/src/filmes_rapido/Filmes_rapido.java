@@ -5,6 +5,7 @@
  */
 package filmes_rapido;
 
+import model.Clientes;
 import ui.LoginDialog;
 
 /**
@@ -12,13 +13,15 @@ import ui.LoginDialog;
  * @author alan
  */
 public class Filmes_rapido {
-
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         //LoginDialog loginDialog = new LoginDialog();
         // TODO code application logic here
+        Clientes clientes = new Clientes();
+        
         new LoginDialog().setVisible(true);
     }
     

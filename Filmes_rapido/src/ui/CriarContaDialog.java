@@ -7,6 +7,9 @@ package ui;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import static jdk.nashorn.internal.runtime.JSType.toInteger;
+import model.Cliente;
+import model.Clientes;
 
 /**
  *
@@ -14,6 +17,7 @@ import java.text.SimpleDateFormat;
  */
 public class CriarContaDialog extends javax.swing.JDialog {
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+    Clientes clientes = new Clientes();
 
     /**
      * Creates new form NewJDialog
@@ -94,7 +98,7 @@ public class CriarContaDialog extends javax.swing.JDialog {
                 btn_cancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 100, -1));
+        jPanel1.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 100, -1));
 
         jLabel3.setText("Insira seus dados ");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
@@ -126,6 +130,13 @@ public class CriarContaDialog extends javax.swing.JDialog {
     private void btn_criarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_criarActionPerformed
         // TODO add your handling code here:
         //procuraCliente(txt_cpf.getText(),txt_senha.getText());
+        Cliente cliente = new Cliente();
+        cliente.setCpf(toInteger(txt_cpf.getText()));
+        // testar se nao existe cpf igual;
+        cliente.setSenha(txt_senha.getText());
+        cliente.setNome(txt_nome.getText());
+        clientes.adicionarCliente(cliente);
+        clientes.serializaLista("clientes.dat");
     }//GEN-LAST:event_btn_criarActionPerformed
 
     private void txt_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cpfActionPerformed
@@ -138,7 +149,7 @@ public class CriarContaDialog extends javax.swing.JDialog {
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         // TODO add your handling code here:
-        // chama janela de criacao de conta
+        
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void txt_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeActionPerformed

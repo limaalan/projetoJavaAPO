@@ -5,14 +5,21 @@
  */
 package ui;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import static jdk.nashorn.internal.runtime.JSType.toInteger;
+import model.Cliente;
+import model.Clientes;
 
 /**
  *
  * @author alan
  */
 public class LoginDialog extends javax.swing.JDialog {
+    Clientes clientes = new Clientes();
+    
+    
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
 
     /**
@@ -30,10 +37,31 @@ public class LoginDialog extends javax.swing.JDialog {
     */
     
     public LoginDialog() {
+        desSerializa();
+        
+        
+        
         //super(modal);
+        
      initComponents();
      
     }
+    private void desSerializa(){
+        try {
+            File arq = new File("clientes.dat"); //tenta abrir o arquivo
+            if (arq.exists()) { //se o arquivo já existe, abre e lê os dados
+                clientes.desSerializaLista("clientes.dat");
+            } else {
+                System.out.println("aquivo tt");
+        }
+        } catch (Exception e) {
+            System.out.println("arquivo não encontrado");
+        }
+        
+    }
+    
+
+    
     
 
     /**
@@ -110,6 +138,20 @@ public class LoginDialog extends javax.swing.JDialog {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
         //procuraCliente(txt_cpf.getText(),txt_senha.getText());
+        //Clientes clientes = new Clientes();
+        Cliente cliente = clientes.procurarCliente(toInteger(txt_cpf.getText()));
+        if (cliente!=null){
+            //System.out.println(cliente.getCpf());
+            //System.out.println(cliente.getSenha());
+            if (txt_senha.getText().equals(cliente.getSenha())){
+                System.out.println("Login bem sucedido !");
+                //chamar a tela de emprestimo
+            }
+        }
+        
+        //txt_senha.setText(cliente.getNome());
+        
+        
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void txt_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cpfActionPerformed
@@ -123,6 +165,18 @@ public class LoginDialog extends javax.swing.JDialog {
     private void btn_novaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novaContaActionPerformed
         // TODO add your handling code here:
         // chama janela de criacao de conta
+        new CriarContaDialog().setVisible(true);
+        desSerializa();
+        
+        
+        /*try {
+            File arq = new File("clientes.dat"); //tenta abrir o arquivo
+            if (arq.exists()) { //se o arquivo já existe, abre e lê os dados
+                clientes.serializaLista("clientes.dat");
+            }
+        } catch (Exception e) {
+            System.out.println("arquivo não encontrado");
+        }*/
     }//GEN-LAST:event_btn_novaContaActionPerformed
 
  
