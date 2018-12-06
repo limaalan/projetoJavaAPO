@@ -145,7 +145,8 @@ public class LoginDialog extends javax.swing.JDialog {
             //System.out.println(cliente.getSenha());
             if (txt_senha.getText().equals(cliente.getSenha())){
                 System.out.println("Login bem sucedido !");
-                //chamar a tela de emprestimo
+                new BuscaFilmesDialog().setVisible(true);
+                desSerializa();
             }
         }
         
@@ -166,7 +167,7 @@ public class LoginDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         // chama janela de criacao de conta
         new CriarContaDialog().setVisible(true);
-        desSerializa();
+        //desSerializa();
         
         
         /*try {

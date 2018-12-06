@@ -136,7 +136,7 @@ public class CriarContaDialog extends javax.swing.JDialog {
         cliente.setSenha(txt_senha.getText());
         cliente.setNome(txt_nome.getText());
         clientes.adicionarCliente(cliente);
-        clientes.serializaLista("clientes.dat");
+        //clientes.serializaLista("clientes.dat");
     }//GEN-LAST:event_btn_criarActionPerformed
 
     private void txt_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cpfActionPerformed

@@ -6,6 +6,8 @@
 package filmes_rapido;
 
 import model.Clientes;
+import model.Filme;
+import model.Filmes;
 import ui.LoginDialog;
 
 /**
@@ -20,7 +22,15 @@ public class Filmes_rapido {
     public static void main(String[] args) {
         //LoginDialog loginDialog = new LoginDialog();
         // TODO code application logic here
-        Clientes clientes = new Clientes();
+        //Clientes clientes = new Clientes();
+        /*Filmes filmes = new Filmes();
+        Filme filme = new Filme();
+        filme.setTitulo("testando");
+        filme.setAno(2018);
+        filmes.adicionarFilme(filme);
+        filmes.serializaLista("filmes.dat");   
+        */
+        
         
         new LoginDialog().setVisible(true);
     }
